@@ -1,5 +1,5 @@
 import List (insert)
-import Data.List (partition)
+import Data.Maybe 
 data ArbolRosa a = ArbolRosa { elemento :: a
                              ,hijos :: [ArbolRosa a]
                    }deriving (Show, Read)
@@ -49,6 +49,17 @@ esHeap (ArbolRosa e (x:xs) ) =False
 foldRosa f a (ArbolRosa e xs) = f e (foldl (f) a (concatMap (aplanar) xs))  
 
 --alturaFold (ArbolRosa _ xs)=  foldRosa (uno) 0 xs
-sumaArbolFold (ArbolRosa a []) = a 
---sumaArbolFold (ArbolRosa a xs) = 
 
+sumaArbolFold = foldRosa (+) 0   
+
+--aplanaFold (ArbolRosa a []) = [a] 
+--aplanaFold  =  
+ 
+                
+--4)
+{-
+unfoldr' :: (b-> Maybe (a,b))-> b -> [a]
+unfoldr' f x = unfold' f x
+  where f x = if isNothing  then [] 
+              else f (fromJust ()) 
+  -}
