@@ -53,13 +53,6 @@ foldRosa f a (ArbolRosa e xs) = f e (foldl (f) a (concatMap (aplanar) xs))
 sumaArbolFold = foldRosa (+) 0   
 
 --aplanaFold (ArbolRosa a []) = [a] 
---aplanaFold  =  
- 
-                
+
+
 --4)
-{-
-unfoldr' :: (b-> Maybe (a,b))-> b -> [a]
-unfoldr' f x = unfold' f x
-  where f x = if isNothing  then [] 
-              else f (fromJust ()) 
-  -}
