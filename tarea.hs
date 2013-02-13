@@ -56,3 +56,10 @@ sumaArbolFold = foldRosa (+) 0
 
 
 --4)
+
+unfold' :: (b -> Maybe(a,b)) -> b -> [a]
+unfold' f x 
+	| isNothing (f x) = []
+	| otherwise = fst (g):unfold' f (snd (g))
+	where 
+	g = fromJust(f x)
