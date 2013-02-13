@@ -4,6 +4,7 @@ data ArbolRosa a = ArbolRosa { elemento :: a
                              ,hijos :: [ArbolRosa a]
                    }deriving (Show, Read)
                              
+--(ArbolRosa 5 [ArbolRosa 6 [ArbolRosa 9 []]])
                                   
 --1)
 insertionSort :: (Ord a) => [a]-> [a]
@@ -39,9 +40,15 @@ mapRosa f (ArbolRosa e xs) = ArbolRosa (f e) (map (mapRosa f) xs)
 
 esHeap :: Ord a => ArbolRosa a -> Bool
 esHeap (ArbolRosa e []) = True
-esHeap (ArbolRosa e (x:xs)) = False
+esHeap (ArbolRosa e (x:xs) ) =False
+                          
 
 
 --3)
 
---foldRosa :: (a-> b-> a)-> a -> ArbolRosa a -> a
+foldRosa f a (ArbolRosa e xs) = f e (foldl (f) a (concatMap (aplanar) xs))  
+
+--alturaFold (ArbolRosa _ xs)=  foldRosa (uno) 0 xs
+sumaArbolFold (ArbolRosa a []) = a 
+--sumaArbolFold (ArbolRosa a xs) = 
+
