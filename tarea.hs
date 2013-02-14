@@ -45,11 +45,9 @@ esHeap (ArbolRosa e (x:xs) ) =False
 
 
 --3)
--- f recibe un elemento y una lista de arboles y retorna algo
+
 --foldRosa f a (ArbolRosa e xs) = f e (foldl (f) a (concatMap (aplanar) xs))  
 foldRosa f a (ArbolRosa e xs) = foldr f e (map (foldRosa f a) xs) 
-
-
 --alturaFold (ArbolRosa _ xs)=  foldRosa (uno) 0 xs
 
 sumaArbolFold = foldRosa (+) 0   
