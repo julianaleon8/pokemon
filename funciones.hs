@@ -34,3 +34,15 @@ data Especie
                 
 data Monstruo 
      = Especie String Int Vida Int 
+
+
+maxHp base nivel = ((31 + (2*base)+ 63.75 +100)*nivel)/100 +10 
+
+estadisticas base nivel = ((31+(2*base)+ 31/4)* nivel)/100 +5
+
+
+dano nivel poder ataque defensa modi= ((( ( (2*nivel)/5 +2)*poder*(ataque/defensa)/50) ) )*modificador modi
+
+
+modificador modi = 4
+
